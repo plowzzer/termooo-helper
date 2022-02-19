@@ -3,15 +3,18 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import * as fs from "fs";
 
 type Data = {
-  name: string
+  simulation: string[]
 }
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const simulation = findWords(req.body.rightWord, req.body.lettersNot)
-  res.status(200).json({simulation})
+  const simulation:string[] = findWords(req.body.rightWord, req.body.lettersNot)
+  console.log(simulation)
+  res.status(200).json({
+    simulation
+  })
 }
 
 function getDictionary() {
@@ -19,11 +22,11 @@ function getDictionary() {
 }
 
 
-function findWords(word, lettersNotIn) {
+function findWords(word:string, lettersNotIn:string) {
   const dictonary = getDictionary()
   const wordArray = word.split('')
-  const wordsThatFit = []
-  const arrayOfNotInRightPlace = []
+  const wordsThatFit:string[] = []
+  const arrayOfNotInRightPlace:string[] = []
   let haveRights = false
   let haveNotInRightPlace = false
   let wordRightCount = 0
