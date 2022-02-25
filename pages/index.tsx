@@ -1,28 +1,19 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import axios from "axios";
 
+import simulate from '../utils/Simulation'
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [rightWord, setRightWord] = useState("");
   const [lettersNot, setLettersNot] = useState("");
-  const [posibilities, setPossibilities] = useState([]);
+  const [posibilities, setPossibilities] = useState([] as string[]);
 
   const handleSimulate = async () => {
-    const payload = {
-      rightWord,
-      lettersNot,
-    };
-    try {
-      const { data } = await axios.post("/api/simulate", payload);
-      console.log(data);
-      setPossibilities(data.simulation);
-    } catch (error) {
-      console.error(error);
-    }
+    console.log(rightWord, lettersNot)
+    const response:string[] = await simulate(rightWord, lettersNot)
+    setPossibilities(response)
   };
 
   return (
