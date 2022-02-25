@@ -11,7 +11,6 @@ const Home: NextPage = () => {
   const [posibilities, setPossibilities] = useState([] as string[]);
 
   const handleSimulate = async () => {
-    console.log(rightWord, lettersNot)
     const response:string[] = await simulate(rightWord, lettersNot)
     setPossibilities(response)
   };
