@@ -7,10 +7,18 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [rightWord, setRightWord] = useState("");
+  const [rightWordError, setRightWordError] = useState("");
   const [lettersNot, setLettersNot] = useState("");
   const [posibilities, setPossibilities] = useState([] as string[]);
 
   const handleSimulate = async () => {
+    setRightWordError("")
+
+    if (rightWord.length !== 5) {
+      setRightWordError("Você deve adicionar uma palavra de 5 letras")
+      return
+    }
+
     const response:string[] = await simulate(rightWord, lettersNot)
     setPossibilities(response)
   };
@@ -39,14 +47,17 @@ const Home: NextPage = () => {
           </label>
           <input
             id="word"
-            className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md px-4 py-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+            className={`placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md px-4 py-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm ${rightWordError && "border-red-500"}`}
             placeholder="<L> verdes <l> amarelos <_> escuro"
             onChange={(e) => {
               setRightWord(e.target.value);
             }}
+            maxLength={5}
+            minLength={5}
             type="text"
             name="word"
           />
+          {rightWordError && <p className="text-red-600">{rightWordError}</p>}
         </div>
 
         <div className="mt-6">
