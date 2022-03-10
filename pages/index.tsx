@@ -35,7 +35,9 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://term.ooo">Termooo</a> Helper
         </h1>
-
+        <div className={styles.version}>
+          <small>v1.0.2</small>
+        </div>
         <p className={styles.description}>
           Entre com a palavra <code className={styles.code}>TerMo</code> e
           retornamos com a sujestão
