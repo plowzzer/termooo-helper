@@ -67,7 +67,7 @@ const Home: NextPage = () => {
               type="text"
               name="word"
             />
-            {rightWordError && <p className="text-red-600">{rightWordError}</p>}
+            {rightWordError && <p className="text-center text-red-600">{rightWordError}</p>}
           </div>
 
           <div className="mt-6 mx-auto w-96 content-center grid">
