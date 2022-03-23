@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           <a href="https://term.ooo">Termooo</a> Helper
         </h1>
         <div className={styles.version}>
-          <small>v1.0.4</small>
+          <small>v1.0.5</small>
         </div>
 
         <form onSubmit={handleSimulateForm}>
