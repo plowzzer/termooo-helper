@@ -47,11 +47,11 @@ const Home: NextPage = () => {
           <a href="https://term.ooo">Termooo</a> Helper
         </h1>
         <div className={styles.version}>
-          <small>v1.0.6</small>
+          <small>v1.0.7</small>
         </div>
 
-        <form onSubmit={handleSimulateForm}>
-          <div className="mx-auto w-96 content-center grid">
+        <form className="w-full" onSubmit={handleSimulateForm}>
+          <div className="mx-auto w-full content-center grid">
             <label htmlFor="word" className={styles.label}>
               Palavra
               <small>{` <A> verdes <a> amarelos <_> escuro`}</small>
@@ -67,10 +67,12 @@ const Home: NextPage = () => {
               type="text"
               name="word"
             />
-            {rightWordError && <p className="text-center text-red-600">{rightWordError}</p>}
+            {rightWordError && (
+              <p className="text-center text-red-600">{rightWordError}</p>
+            )}
           </div>
 
-          <div className="mt-6 mx-auto w-96 content-center grid">
+          <div className="mt-6 mx-auto w-full content-center grid">
             <label htmlFor="not-in" className={styles.label}>
               Letras
               <small>{` digite as letras que não existem`}</small>
@@ -86,7 +88,7 @@ const Home: NextPage = () => {
             />
           </div>
 
-          <div className="mt-6 mx-auto w-96 content-center grid">
+          <div className="mt-6 mx-auto w-full content-center grid">
             <input
               type="submit"
               className={styles.button}
