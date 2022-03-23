@@ -27,7 +27,7 @@
 
 .input {
   border-radius: 4px;
-  border: 2px solid #ddd;
+  border: 2px solid #F2E9E1;
   color: #1c140d;
   text-align: center;
   outline: none;
@@ -55,8 +55,9 @@
   border-radius: 4px;
   width: 100%;
   text-transform: uppercase;
-  background-color: #f2e9e1;
-  font-weight: bold;
+  background-color: #1c140d;
+  color: #cbe86b;
+  font-weight: 600;
   cursor: pointer;
   letter-spacing: 3px;
 }
